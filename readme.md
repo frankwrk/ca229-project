@@ -17,23 +17,28 @@ Project dependencies:
 *   pip 20.0.2
 
 Application file structure: 
-- hse_site/  (main project folder)
-    - site-root/   (Django Application folder)
-        - hsesite/    (Application settings folder)
+- ca229_project/  (main project folder)
+    - hse_site/   (Django Application folder)
+    - static/     (CSS, Javascript and Images)
+    - templates/  (HTML templates and pages) 
 
 In order to install this version of the application: 
-*  Download this repo on your development machine by clicking on the following link (https://gitlab.computing.dcu.ie/furduif2/ca229_2020-group_project/-/archive/master/ca229_2020-group_project-master.zip)
-*  Unzip the archive, open your terminal and navigate to the project folder: `cd ca229_2020-group_project-master`
-*  Verify your python version by running: `python3 --version` (if your result is different than 3.8.2, install the latest version from https://python.org/downloads/)
-*  Activate your virtual environment: - on macOS: `source env_hseloc/bin/activate`
-                                      - on windows: `env_hseloc/scripts/activate`
-                                      - your terminal command prompt should start with `(env_hseloc)`
-*  Verify your django version by running `python -m django --version`, which should give you version 3.0.5
-*  Test your instance of the application by running the following commands: `cd site_root` and `python manage.py runserver`
-*  Open your browser and navigate to http://127.0.0.1:8000/ where you should see the flying rocket
+*  You will a GitHub account for this to work, because Gitlab is not working for me. Checkout https://github.com if you don't have an account.
+*  Navigate to a place where you want to save and work on yout application, e.g C:\dcu\ca229 , or something similar
+*  Download this repo on your development machine by running the following command in your terminal `git clone https://github.com/frankwrk/ca229-project.git`
+*  Go to the folder just created name `ca229_project`
+*  Install `pipenv` by running `curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python` (if you have problems you can check here for more details, https://pipenv-fork.readthedocs.io/en/latest/install.html)
+*  Once previous task is done, run `pipenv install` to install all the dependecies of the app.
+*  When finished, run `pipenv shell` which should turn on the virtual environment and then run `python manage.py migrate`
+*  You now have the latest application installed and ready for more things to be added.
+*  Check the application is running as it should by running `python manage.py runserver` 
 
-This is the end of the initial version of the application.
+*  Open your browser and navigate to http://127.0.0.1:8000/ where you should see the an application dashboard
 
-Follow the tutorials in the Django Book https://loop.dcu.ie/pluginfile.php/3029104/mod_resource/content/2/Django2Book_v02.pdf to add your pages
 
-Test all work, before pushing your changes to `dev` branch (https://gitlab.computing.dcu.ie/furduif2/ca229_2020-group_project/tree/dev)
+Test all work, before pushing your changes to `dev` branch.
+* To add some of your changes, first check your git by running `git status`
+* Then add all files by running `git add .`
+* Commit all changes `git commit -a -m "Change commit message to something relevant to your update"`
+* Push all changes to the `your-name` branch by running `git checkout -b your-name` (you can have your own branch, which includes all the changes you make to the applciation)
+* Run `git push --set-upstream origin your-name` to switch to your own branch and repeat the steps above to add, commit and `git push` your changes to your branch.
