@@ -35,7 +35,6 @@ In order to install this version of the application:
 
 *  Open your browser and navigate to http://127.0.0.1:8000/ where you should see the an application dashboard
 
-Follow the tutorials in the Django Book https://loop.dcu.ie/pluginfile.php/3029104/mod_resource/content/2/Django2Book_v02.pdf to add your pages
 
 Test all work, before pushing your changes to `dev` branch.
 * To add some of your changes, first check your git by running `git status`
