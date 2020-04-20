@@ -15,6 +15,7 @@ Project dependencies:
 *   python 3.8.2 
 *   django 3.0.5
 *   pip 20.0.2
+*   css framework Tailwind https://tailwindcss.com/
 
 Application file structure: 
 - ca229_project/  (main project folder)
@@ -42,3 +43,4 @@ Test all work, before pushing your changes to `dev` branch.
 * Commit all changes `git commit -a -m "Change commit message to something relevant to your update"`
 * Push all changes to the `your-name` branch by running `git checkout -b your-name` (you can have your own branch, which includes all the changes you make to the applciation)
 * Run `git push --set-upstream origin your-name` to switch to your own branch and repeat the steps above to add, commit and `git push` your changes to your branch.
+* change the template files related to your work and use Tailwind css framework (find examples and elements here https://tailwindcss.com/)
