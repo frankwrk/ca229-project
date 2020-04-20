@@ -9,7 +9,7 @@ HSE Locations in Ireland, using data and API's
 
 Project **Trello board**: https://trello.com/b/L4UZbrlh/groupproject
 
-Project **Gitlab URL**: https://gitlab.computing.dcu.ie/furduif2/ca229_2020-group_project
+Project **Gitlab URL**: https://github.com/frankwrk/ca229-project
 
 Project dependencies: 
 *   python 3.8.2 
@@ -17,8 +17,7 @@ Project dependencies:
 *   pip 20.0.2
 
 Application file structure: 
-- ca229_2020-group_project-master/  (main project folder)
-    - env_hseloc/  (virtual environment which includes python)
+- hse_site/  (main project folder)
     - site-root/   (Django Application folder)
         - hsesite/    (Application settings folder)
 
