@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>hse_location</title>
+  <meta name="description" content="HSE Locations in Ireland">
+  <meta name="keywords" content="">
+  <meta name="author" content="Francisc Furdui"><!-- jQuery CDN -->
+  <script 
+    src="https://code.jquery.com/jquery-3.4.1.min.js" 
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous">
+  </script>
+  <link rel="stylesheet" href="{% static 'css/styles.min.css' %}" type="text/css"/>
+  <link rel="stylesheet" href="{% static "css/main.css" %}">
+  <script type="text/javascript" src="{% static 'javascript/main.js' %}"></script>
+</head>
+
+<body class="bg-grey-lightest font-serif leading-normal tracking-normal">
+  <div class="container mx-auto">
+    <section class="flex items-center justify-center h-screen">
+      <div class="flex flex-col items-center justify-center">
+        <h1 class="text-5xl">hse_location</h1>
+        <h2 class="text-3xl">HSE Locations in Ireland</h2>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
