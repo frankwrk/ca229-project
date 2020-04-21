@@ -8,6 +8,7 @@ pylint = "*"
 pylint-django = "*"
 django-extensions = "*"
 pytest-django = "*"
+autopep8 = "*"
 
 [packages]
 django = ">=2.2.12"
@@ -15,7 +16,6 @@ pytest = "*"
 pytest-cov = "*"
 django-tailwind = "*"
 python-decouple = "*"
-
 
 [requires]
 python_version = "3.8.2"
