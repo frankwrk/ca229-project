@@ -24,6 +24,12 @@ DEBUG = config("DEBUG", default=True, cast=bool)
 
 ALLOWED_HOSTS = []
 
+ADMINS = (
+    ("Francisc Furdui", "francisc.furdui2@mail.dcu.ie"),
+)
+
+MANAGERS = ADMINS
+
 
 # Application definition
 
@@ -33,8 +39,9 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
-    "django.contrib.staticfiles","tailwind",
-    "theme",    
+    "django.contrib.staticfiles",
+    "tailwind",
+    "theme",
 ]
 
 TAILWIND_APP_NAME = "theme"
@@ -105,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "Asia/Jerusalem"
+TIME_ZONE = "America/New_York"
 
 USE_I18N = True
 
