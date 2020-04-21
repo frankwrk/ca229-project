@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+table.month th {
+    padding: 20px 0px;
+   text-align: center;
+   
+}
+
+table.month td {
+   padding: 20px;
+   text-align: center;
+   border: 1px solid rgb(221, 221, 221);
+}
+
