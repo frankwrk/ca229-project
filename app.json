@@ -1,0 +1,7 @@
+{
+  "name": "HSE Django Project - CA229",
+  "description": "A simple application project for CA229",
+  "repository": "https://github.com/frankwrk/ca229-project",
+  "logo": "https://i.imgur.com/wJ5I0PJ.png",
+  "keywords": ["django", "project", "CA229", "university"]
+}
