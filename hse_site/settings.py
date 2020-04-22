@@ -23,7 +23,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', "tr01t%a68+1z_m+-zbsth)%xqu7bi&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", default=True, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 ADMINS = (
     ("Francisc Furdui", "francisc.furdui2@mail.dcu.ie"),
@@ -92,16 +92,12 @@ WSGI_APPLICATION = "hse_site.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -149,6 +145,3 @@ STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
-
-# Activate Django-Heroku.
-django_heroku.settings(locals())
