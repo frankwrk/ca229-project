@@ -5,6 +5,7 @@
 .LSOverride
 .DS_Store
 *.tar.gz
+settings.ini
 
 # Log files
 npm-debug.log*
@@ -13,7 +14,7 @@ yarn-error.log*
 *.log
 
 # Editor directories and files
-.idea
+\.idea/
 .vscode
 *.suo
 *.ntvs*
