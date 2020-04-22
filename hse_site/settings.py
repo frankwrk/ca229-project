@@ -95,18 +95,9 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-if "DATABASE_URL" in os.environ:
-    DATABASES = {
-        "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
-    }
-else:
-    print("Postgres URL not found, using sqlite instead")
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-        }
-    }
+DATABASES = {
+    "default": dj_database_url.parse("postgres://fohzaeycfnphpb:08d2afad682147b3235143d38fc1ee2df95addb563cfedd0c581f95bb82e9854@ec2-52-71-55-81.compute-1.amazonaws.com:5432/d9ve703d0h4j7s", conn_max_age=600)
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
