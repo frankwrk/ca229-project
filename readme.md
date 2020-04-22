@@ -44,3 +44,5 @@ Test all work, before pushing your changes to `dev` branch.
 * Push all changes to the `your-name` branch by running `git checkout -b your-name` (you can have your own branch, which includes all the changes you make to the applciation)
 * Run `git push --set-upstream origin your-name` to switch to your own branch and repeat the steps above to add, commit and `git push` your changes to your branch.
 * change the template files related to your work and use Tailwind css framework (find examples and elements here https://tailwindcss.com/)
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://www.heroku.com/deploy/?template=https://github.com/frankwrk/ca229-project)
