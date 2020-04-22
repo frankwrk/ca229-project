@@ -42,10 +42,11 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "events.apps.EventsConfig",
     "theme.apps.ThemeConfig",
-    "pages.apps.PagesConfig",
     "tailwind",
+    "crispy_forms",
 ]
 
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 TAILWIND_APP_NAME = "theme"
 
 
