@@ -1,3 +1,5 @@
+[![Python 3](https://pyup.io/repos/github/benmcnelly/qdds/python-3-shield.svg)](https://pyup.io/repos/github/benmcnelly/qdds/)
+
 # CA229_2020-Group_107 Project
 
 **Health & Safety Django Website**
