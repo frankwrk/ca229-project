@@ -4,7 +4,6 @@
 .AppleDouble
 .LSOverride
 .DS_Store
-*.pyc
 *.tar.gz
 
 # Log files
@@ -52,5 +51,3 @@ staticfiles/
 venv/
 ENV/
 
-## Pipfile.lock
-Pipfile.lock

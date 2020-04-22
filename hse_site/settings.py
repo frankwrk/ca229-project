@@ -17,7 +17,7 @@ from decouple import config
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "tr01t%a68+1z_m+-zbsth)%xqu7bi&!b1yg&zsredfc*(g5-2t"
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', "tr01t%a68+1z_m+-zbsth)%xqu7bi&!b1yg&zsredfc*(g5-2t")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", default=True, cast=bool)
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "theme.apps.ThemeConfig",
     "tailwind",
     "crispy_forms",
+    "whitenoise.runserver_nostatic",
 ]
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
@@ -52,6 +53,7 @@ TAILWIND_APP_NAME = "theme"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -129,6 +131,8 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 STATICFILES_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(BASE_DIR, "static/"),
@@ -141,3 +145,6 @@ STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
