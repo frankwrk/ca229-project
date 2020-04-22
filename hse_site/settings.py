@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "events.apps.EventsConfig",
     "theme.apps.ThemeConfig",
-    "pages.apps.PagesConfig",
     "tailwind",
 ]
 

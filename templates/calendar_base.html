@@ -1,9 +1,10 @@
-{% extends 'calendar.html' %}
+{% extends "calendar.html" %}
 {% block title %}
 {{ title }}
 {% endblock title %}
 
 {% block content %} 
     <h1>{{ title }}</h1> 
-    <p>{% autoescape off %}{{ cal }}{% endautoescape %}</p> 
+    <p>{% autoescape off %}{{ cal }}{% endautoescape %}</p>
+    {% include "announcements.html" %}
 {% endblock content %}

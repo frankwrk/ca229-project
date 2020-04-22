@@ -4,7 +4,6 @@ from calendar import HTMLCalendar
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
 
-   
 def index(request, year=date.today().year, month=date.today().month):
     year = int(year)
     month = int(month)

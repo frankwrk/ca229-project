@@ -22,13 +22,44 @@
     <link rel="stylesheet" href={% static "css/main.css" %} type="text/css" />
     <link rel="shortcut icon" href={% static "img/logo/hse-logo.ico" %} type="image/ico" />
     <script type="text/javascript" src={% static "javascript/main.js" %}></script>
+    <link rel="stylesheet" href={% static "img/media/fontawesome/css/all.css" %} type="text/css" />
 </head>
 
 <body>
 
-{% include "header.html" %}
+    {% include "header.html" %}
 
-{% include "footer.html" %}
+    <div class="container mx-auto px-6 justify-center">
+        <div class="bg-white w-full mb-6 shadow-xl rounded-lg -mt-64">
+            
+                <div class="justify-center">
+                    {% block content %}
+
+                    {% if submitted %}
+                    <p class="success">
+                        Your message was submitted successfully. Thank you.
+                    </p>
+                    {% else %}
+                    <form action="" method="post" novalidate>
+                        <table>
+                            {{ form.as_table }}
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><input type="submit" value="Submit"></td>
+                            </tr>
+                        </table>
+                        {% csrf_token %}
+                    </form>
+                    {% endif %}
+
+                    {% endblock content %}
+                </div>
+            
+        </div>
+    </div>
+
+    {% include "footer.html" %}
 
 </body>
+
 </html>
