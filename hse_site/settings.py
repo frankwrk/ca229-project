@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
-    "whitenoise.runserver_nostatic",
     "django.contrib.staticfiles",
     "events.apps.EventsConfig",
     "theme.apps.ThemeConfig",
@@ -102,7 +101,6 @@ DATABASES = {
     )
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
@@ -134,8 +132,8 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, "staticfiles")
 STATIC_URL = "/static/"
 
 # Media
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
-MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, "media")
+MEDIA_URL = "/media/"
 
 STATICFILES_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
