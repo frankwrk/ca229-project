@@ -4,6 +4,8 @@
 .AppleDouble
 .LSOverride
 .DS_Store
+*.pyc
+*.tar.gz
 
 # Log files
 npm-debug.log*
