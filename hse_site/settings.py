@@ -43,8 +43,10 @@ INSTALLED_APPS = [
     "events.apps.EventsConfig",
     "theme.apps.ThemeConfig",
     "tailwind",
+    "crispy_forms",
 ]
 
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 TAILWIND_APP_NAME = "theme"
 
 

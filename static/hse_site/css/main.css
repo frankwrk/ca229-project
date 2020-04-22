@@ -11,5 +11,5 @@ table.month td {
 }
 
 th.month {
-    display: none;
+    display: none !important;
 }

@@ -4,15 +4,10 @@ from django.http import HttpResponseRedirect
 from django.core.mail import send_mail, get_connection
 
 class ContactForm(forms.Form):
-    yourname = forms.CharField(max_length=100,label="Your Name")
-    email = forms.EmailField(required=False,label="Your e-mail address")
-    subject = forms.CharField(max_length=100)
-    message = forms.CharField(widget=forms.Textarea)
-    
-    def __init__(self, *args, **kwargs):
-        super(ContactForm, self).__init__(*args, **kwargs)
-        for visible in self.visible_fields():
-            visible.field.widget.attrs["class"] = "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal"
+    name = forms.CharField(max_length=100, label="", widget=forms.TextInput(attrs={"placeholder": "Your Name", "class": "px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full", "style": "transition: all 0.15s ease 0s;"}))
+    email = forms.EmailField(required=True, label="", widget=forms.TextInput(attrs={"placeholder": "Your Email", "class": "px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full", "style": "transition: all 0.15s ease 0s;"}))
+    subject = forms.CharField(max_length=100, label="", required=False, widget=forms.TextInput(attrs={"placeholder": "Subject", "class": "px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full", "style": "transition: all 0.15s ease 0s;"}))
+    message = forms.CharField(label="", widget=forms.Textarea(attrs={"placeholder": "Type your Message ...", "rows": "4", "cols": "80", "class": "px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"}))
     
 def contact(request):
     submitted = False
@@ -25,8 +20,8 @@ def contact(request):
             send_mail(
                 cd["subject"],
                 cd["message"],
-                cd.get("email", "noreply@example.com"),
-                ['siteowner@example.com'],
+                cd.get("email", "francisc.furdui2@mail.dcu.ie"),
+                ["francisc.furdui2@mail.dcu.ie"],
                 connection=con
                 )
             return HttpResponseRedirect("/contact?submitted=True")
