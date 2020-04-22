@@ -16,9 +16,10 @@ import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_ROOT= os.path.dirname(os.path.abspath(__file__))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', "tr01t%a68+1z_m+-zbsth)%xqu7bi&!b1yg&zsredfc*(g5-2t")
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "tr01t%a68+1z_m+-zbsth)%xqu7bi&!b1yg&zsredfc*(g5-2t")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", default=True, cast=bool)
@@ -40,12 +41,12 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
+    "whitenoise.runserver_nostatic",
     "django.contrib.staticfiles",
     "events.apps.EventsConfig",
     "theme.apps.ThemeConfig",
     "tailwind",
     "crispy_forms",
-    "whitenoise.runserver_nostatic",
 ]
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
@@ -76,7 +77,8 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-            ]
+            ],
+            "debug": DEBUG,
         },
     }
 ]
@@ -88,6 +90,8 @@ TEMPLATE_LOADERS = (
 
 WSGI_APPLICATION = "hse_site.wsgi.application"
 
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
@@ -99,13 +103,14 @@ DATABASES = {
     }
 }
 
+# Change 'default' database configuration with $DATABASE_URL.
+DATABASES["default"].update(dj_database_url.config(conn_max_age=500, ssl_require=True))
+
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
-    },
+    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
@@ -128,10 +133,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-
+STATIC_ROOT = os.path.join(PROJECT_ROOT, "staticfiles")
 STATIC_URL = "/static/"
-
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 STATICFILES_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
@@ -139,7 +142,20 @@ STATICFILES_DIRS = (
     os.path.join(
         BASE_DIR, "static/hse_site/"
     ),  # this is for static/hse_site/main.css
+    os.path.join(
+        BASE_DIR, "static/hse_site/css/"
+    ),
+    os.path.join(
+        BASE_DIR, "static/hse_site/img/"
+    ),
+    os.path.join(
+        BASE_DIR, "static/hse_site/javascript/"
+    ),
 )
+
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
