@@ -25,6 +25,8 @@ yarn-error.log*
 *.pyc
 __pycache__
 .pytest_cache/*
+Pipfile.lock
+Pipfile
 
 # Unit test / coverage reports
 tests/*
