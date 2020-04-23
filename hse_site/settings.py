@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 from decouple import config
-import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -89,14 +88,14 @@ TEMPLATE_LOADERS = (
 
 WSGI_APPLICATION = "hse_site.wsgi.application"
 
-# Honor the 'X-Forwarded-Proto' header for request.is_secure()
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    "default": dj_database_url.parse("postgres://fohzaeycfnphpb:08d2afad682147b3235143d38fc1ee2df95addb563cfedd0c581f95bb82e9854@ec2-52-71-55-81.compute-1.amazonaws.com:5432/d9ve703d0h4j7s", conn_max_age=600)
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
 
 # Password validation
@@ -126,7 +125,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-STATIC_ROOT = os.path.join(PROJECT_ROOT, "staticfiles")
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = "/static/"
 
 # Media
@@ -139,9 +138,6 @@ STATICFILES_DIRS = (
     os.path.join(
         BASE_DIR, "static/hse_site/"
     ),  # this is for static/hse_site/main.css
-    os.path.join(
-        BASE_DIR, "static/hse_site/css/"
-    ),
     os.path.join(
         BASE_DIR, "static/hse_site/img/"
     ),

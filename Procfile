@@ -1,1 +1,1 @@
-web: gunicorn hse_site.wsgi --log-file -
+web: gunicorn hse_site.wsgi.application --log-file -
