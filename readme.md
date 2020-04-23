@@ -1,4 +1,5 @@
 [![Python 3](https://pyup.io/repos/github/benmcnelly/qdds/python-3-shield.svg)](https://pyup.io/repos/github/benmcnelly/qdds/)
+[![Heroku](https://rootsitedj.herokuapp.com/)] Published here
 
 # CA229_2020-Group_107 Project
 
