@@ -39,12 +39,12 @@ In order to install this version of the application:
 
 *  Open your browser and navigate to http://127.0.0.1:8000/ where you should see the an application dashboard
 
-
+**GitHub**
 Test all work, before pushing your changes to `dev` branch.
 * To add some of your changes, first check your git by running `git status`
 * Then add all files by running `git add .`
 * Commit all changes `git commit -a -m "Change commit message to something relevant to your update"`
-* Push all changes to the `your-name` branch by running `git checkout -b your-name` (you can have your own branch, which includes all the changes you make to the applciation)
+* Push all changes to the `your-name` branch by running `git checkout -b your-name` (you can have your own branch, which includes all the changes you make to the application)
 * Run `git push --set-upstream origin your-name` to switch to your own branch and repeat the steps above to add, commit and `git push` your changes to your branch.
 * change the template files related to your work and use Tailwind css framework (find examples and elements here https://tailwindcss.com/)
 
